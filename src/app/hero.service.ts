@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { IHero } from './interfaces/hero';
 import { HEROS } from './mock/mock-hero';
 import { Observable, of } from 'rxjs';
@@ -10,6 +11,7 @@ import { MessageService } from './message.service';
 export class HeroService {
 
   constructor(
+    private http: HttpClient,
     private messageService: MessageService
   ) { }
 
@@ -18,4 +20,5 @@ export class HeroService {
     const heroes = of(HEROS)
     return heroes
   }
+
 }
